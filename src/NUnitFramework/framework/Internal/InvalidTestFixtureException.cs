@@ -24,7 +24,7 @@
 namespace NUnit.Framework.Internal
 {
     using System;
-#if !NETCF
+#if !NETCF && !NETSTANDARD1_3
     using System.Runtime.Serialization;
 #endif
 
@@ -57,7 +57,7 @@ namespace NUnit.Framework.Internal
         public InvalidTestFixtureException(string message, Exception inner) : base(message, inner)
         { }
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         /// <summary>
         /// Serialization Constructor
         /// </summary>

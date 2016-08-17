@@ -226,7 +226,7 @@ namespace NUnit.Framework.Api
             // Insert elements as first child in reverse order
             if (Settings != null) // Some platforms don't have settings
                 InsertSettingsElement(result, Settings);
-#if !PORTABLE && !SILVERLIGHT
+#if !PORTABLE && !SILVERLIGHT && !NETSTANDARD1_3
             InsertEnvironmentElement(result);
 #endif
 
@@ -278,7 +278,7 @@ namespace NUnit.Framework.Api
             // Insert elements as first child in reverse order
             if (Settings != null) // Some platforms don't have settings
                 InsertSettingsElement(result, Settings);
-#if !PORTABLE && !SILVERLIGHT
+#if !PORTABLE && !SILVERLIGHT && !NETSTANDARD1_3
             InsertEnvironmentElement(result);
 #endif
 
@@ -354,7 +354,7 @@ namespace NUnit.Framework.Api
             // Insert elements as first child in reverse order
             if (Settings != null) // Some platforms don't have settings
                 InsertSettingsElement(result, Settings);
-#if !PORTABLE && !SILVERLIGHT
+#if !PORTABLE && !SILVERLIGHT && !NETSTANDARD1_3
             InsertEnvironmentElement(result);
 #endif
 
@@ -382,7 +382,7 @@ namespace NUnit.Framework.Api
             handler.RaiseCallbackEvent(CountTests(filter).ToString());
         }
 
-#if !PORTABLE && !SILVERLIGHT
+#if !PORTABLE && !SILVERLIGHT && !NETSTANDARD1_3
         /// <summary>
         /// Inserts environment element
         /// </summary>

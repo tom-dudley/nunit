@@ -21,7 +21,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
 using System;
 using System.IO;
 using System.Xml.Serialization;

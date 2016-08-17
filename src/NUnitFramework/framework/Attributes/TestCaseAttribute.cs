@@ -384,7 +384,7 @@ namespace NUnit.Framework
 
                 if (targetType.IsAssignableFrom(arg.GetType()))
                     continue;
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
                 if (arg is DBNull)
                 {
                     arglist[i] = null;
@@ -435,8 +435,8 @@ namespace NUnit.Framework
         public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
         {
             TestMethod test = new NUnitTestCaseBuilder().BuildTestMethod(method, suite, GetParametersForTestCase(method));
-            
-#if !PORTABLE
+
+#if !PORTABLE && !NETSTANDARD1_3
             if (test.RunState != RunState.NotRunnable &&
                 test.RunState != RunState.Ignored)
             {

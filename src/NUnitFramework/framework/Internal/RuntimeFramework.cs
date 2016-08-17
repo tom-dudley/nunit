@@ -21,7 +21,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -65,7 +65,7 @@ namespace NUnit.Framework.Internal
         // than the version in the test engine because it does
         // not need to know what frameworks are available,
         // only what framework is currently running.
-        #region Static and Instance Fields
+#region Static and Instance Fields
 
         /// <summary>
         /// DefaultVersion is an empty Version, used to indicate that
@@ -154,9 +154,9 @@ namespace NUnit.Framework.Internal
             return currentFramework;
         });
 
-        #endregion
+#endregion
 
-        #region Constructor
+#region Constructor
 
         /// <summary>
         /// Construct from a runtime type and version. If the version has
@@ -256,9 +256,9 @@ namespace NUnit.Framework.Internal
                 FrameworkVersion = new Version(1, 0);
         }
 
-        #endregion
+#endregion
 
-        #region Properties
+#region Properties
         /// <summary>
         /// Static method to return a RuntimeFramework object
         /// for the framework that is currently in use.
@@ -300,9 +300,9 @@ namespace NUnit.Framework.Internal
         /// </summary>
         public string DisplayName { get; private set; }
 
-        #endregion
+#endregion
 
-        #region Public Methods
+#region Public Methods
 
         /// <summary>
         /// Parses a string representing a RuntimeFramework.
@@ -389,9 +389,9 @@ namespace NUnit.Framework.Internal
                 : FrameworkVersion.Major >= target.FrameworkVersion.Major && FrameworkVersion.Minor >= target.FrameworkVersion.Minor;
         }
 
-        #endregion
+#endregion
 
-        #region Helper Methods
+#region Helper Methods
 
         private static bool IsRuntimeTypeName(string name)
         {
@@ -416,7 +416,7 @@ namespace NUnit.Framework.Internal
                   (v1.Revision < 0 || v2.Revision < 0 || v1.Revision == v2.Revision);
         }
 
-        #endregion
+#endregion
     }
 }
 #endif

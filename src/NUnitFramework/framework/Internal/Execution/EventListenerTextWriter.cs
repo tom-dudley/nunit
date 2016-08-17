@@ -83,7 +83,11 @@ namespace NUnit.Framework.Internal.Execution
         /// </summary>
         override public System.Text.Encoding Encoding
 		{
-			get { return Encoding.Default; }
+#if NETSTANDARD1_3
+            get { return Encoding.UTF8; }
+#else
+            get { return Encoding.Default; }
+#endif
 		}
 
         private bool TrySendToListener(string text)

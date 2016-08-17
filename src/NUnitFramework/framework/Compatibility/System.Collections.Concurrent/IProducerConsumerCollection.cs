@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 //
 //
-
+#if !NETSTANDARD1_3
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -88,3 +88,4 @@ namespace System.Collections.Concurrent
 		void CopyTo (T[] array, int index);
 	}
 }
+#endif

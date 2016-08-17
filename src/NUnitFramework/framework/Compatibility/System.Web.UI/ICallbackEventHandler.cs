@@ -21,7 +21,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
-#if PORTABLE || SILVERLIGHT || NETCF
+#if PORTABLE || SILVERLIGHT || NETCF || NETSTANDARD1_3
 namespace System.Web.UI
 {
     /// <summary>

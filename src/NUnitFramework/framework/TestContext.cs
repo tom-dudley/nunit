@@ -118,7 +118,7 @@ namespace NUnit.Framework
             get { return _testExecutionContext.WorkerId; }
         }
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         /// <summary>
         /// Gets the directory containing the current test assembly.
         /// </summary>

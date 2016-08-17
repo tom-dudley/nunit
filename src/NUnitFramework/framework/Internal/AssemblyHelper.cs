@@ -46,7 +46,7 @@ namespace NUnit.Framework.Internal
         {
 #if SILVERLIGHT
             return GetAssemblyName(assembly).Name;
-#elif NETCF || PORTABLE
+#elif NETCF || PORTABLE || NETSTANDARD1_3
             return assembly.ManifestModule.FullyQualifiedName;
 #else
             string codeBase = assembly.CodeBase;
@@ -96,7 +96,7 @@ namespace NUnit.Framework.Internal
 
         #region Load
 
-#if PORTABLE
+#if PORTABLE || NETSTANDARD1_3
         /// <summary>
         /// Loads an assembly given a string, which is the AssemblyName
         /// </summary>
@@ -143,7 +143,7 @@ namespace NUnit.Framework.Internal
 
         #region Helper Methods
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         private static bool IsFileUri(string uri)
         {
             return uri.ToLower().StartsWith(Uri.UriSchemeFile);

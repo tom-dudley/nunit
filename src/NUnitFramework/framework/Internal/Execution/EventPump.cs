@@ -140,7 +140,9 @@ namespace NUnit.Framework.Internal.Execution
                 _pumpThread = new Thread (PumpThreadProc)
                     {
                     Name = "EventPumpThread" + Name,
+#if !NETSTANDARD1_3
                     Priority = ThreadPriority.Highest
+#endif
                     };
 
                 _pumpThread.Start();
@@ -158,9 +160,9 @@ namespace NUnit.Framework.Internal.Execution
                 _pumpThread.Join();
             }
         }
-        #endregion
+#endregion
 
-        #region PumpThreadProc
+#region PumpThreadProc
 
         /// <summary>
         /// Our thread proc for removing items from the event
@@ -201,7 +203,7 @@ namespace NUnit.Framework.Internal.Execution
                     log.Error("Event pump thread exiting with {0} events remaining");
             }
         }
-        #endregion
+#endregion
     }
 }
 #endif

@@ -66,7 +66,7 @@ namespace NUnit.Framework.Internal.Execution
                 _topLevelWorkItem = work;
                 _runnerThread = new Thread(RunnerThreadProc);
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !NETSTANDARD1_3
                 if (work.TargetApartment == ApartmentState.STA)
                     _runnerThread.SetApartmentState(ApartmentState.STA);
 #endif

@@ -99,7 +99,7 @@ namespace NUnit.Framework.Internal
             Test = test;
             ResultState = ResultState.Inconclusive;
 
-#if PORTABLE || SILVERLIGHT
+#if PORTABLE || SILVERLIGHT || NETSTANDARD1_3
             OutWriter = new StringWriter(_output);
 #else
             OutWriter = TextWriter.Synchronized(new StringWriter(_output));
@@ -467,7 +467,7 @@ namespace NUnit.Framework.Internal
                 SetResult(((ResultStateException)ex).ResultState,
                     ex.Message,
                     StackFilter.Filter(ex.StackTrace));
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
             else if (ex is System.Threading.ThreadAbortException)
                 SetResult(ResultState.Cancelled,
                     "Test cancelled by user",
@@ -493,7 +493,7 @@ namespace NUnit.Framework.Internal
                 SetResult(((ResultStateException)ex).ResultState.WithSite(site),
                     ex.Message,
                     StackFilter.Filter(ex.StackTrace));
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
             else if (ex is System.Threading.ThreadAbortException)
                 SetResult(ResultState.Cancelled.WithSite(site),
                     "Test cancelled by user",

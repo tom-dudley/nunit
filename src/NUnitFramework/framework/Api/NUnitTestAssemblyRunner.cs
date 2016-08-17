@@ -31,7 +31,9 @@ using System.Collections.Generic;
 using System.IO;
 #if !SILVERLIGHT && !NETCF && !PORTABLE
 using System.Diagnostics;
+#if !NETSTANDARD1_3
 using System.Windows.Forms;
+#endif
 #endif
 
 namespace NUnit.Framework.Api
@@ -235,7 +237,7 @@ namespace NUnit.Framework.Api
         /// <returns>True if the run completed, otherwise false</returns>
         public bool WaitForCompletion(int timeout)
         {
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             return _runComplete.WaitOne(timeout, false);
 #else
             return _runComplete.WaitOne(timeout);
@@ -294,7 +296,7 @@ namespace NUnit.Framework.Api
                 (bool)Settings[FrameworkPackageSettings.DebugTests])
                 System.Diagnostics.Debugger.Launch();
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             if (Settings.ContainsKey(FrameworkPackageSettings.PauseBeforeRun) &&
                 (bool)Settings[FrameworkPackageSettings.PauseBeforeRun])
                 PauseBeforeRun();
@@ -383,7 +385,7 @@ namespace NUnit.Framework.Api
         }
 #endif
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
         private static void PauseBeforeRun()
         {
             var process = Process.GetCurrentProcess();

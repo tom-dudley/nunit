@@ -256,7 +256,7 @@ namespace NUnit.Framework.Internal.Execution
                     var child = WorkItem.CreateWorkItem(test, _childFilter);
                     child.WorkerId = this.WorkerId;
 
-#if !PORTABLE && !SILVERLIGHT && !NETCF
+#if !PORTABLE && !SILVERLIGHT && !NETCF && !NETSTANDARD1_3
                     if (child.TargetApartment == ApartmentState.Unknown && TargetApartment != ApartmentState.Unknown)
                         child.TargetApartment = TargetApartment;
 #endif

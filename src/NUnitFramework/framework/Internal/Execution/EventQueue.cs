@@ -26,8 +26,10 @@ using System;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Globalization;
-using System.Runtime.Serialization;
 using System.Threading;
+#if !NETSTANDARD1_3
+using System.Runtime.Serialization;
+#endif
 #if NET_2_0 || NET_3_5 || NETCF
 using ManualResetEventSlim = System.Threading.ManualResetEvent;
 #endif
@@ -132,7 +134,7 @@ namespace NUnit.Framework.Internal.Execution
         }
     }
 
-    #endregion
+#endregion
 
     /// <summary>
     /// Implements a queue of work items each of which

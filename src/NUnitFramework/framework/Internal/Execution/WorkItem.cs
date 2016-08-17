@@ -75,7 +75,7 @@ namespace NUnit.Framework.Internal.Execution
             Result = test.MakeTestResult();
             State = WorkItemState.Ready;
             Actions = new List<ITestAction>();
-#if !PORTABLE && !SILVERLIGHT && !NETCF
+#if !PORTABLE && !SILVERLIGHT && !NETCF && !NETSTANDARD1_3
             TargetApartment = Test.Properties.ContainsKey(PropertyNames.ApartmentState)
                 ? (ApartmentState)Test.Properties.Get(PropertyNames.ApartmentState)
                 : ApartmentState.Unknown;
@@ -188,7 +188,7 @@ namespace NUnit.Framework.Internal.Execution
         /// </summary>
         public TestResult Result { get; protected set; }
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
         internal ApartmentState TargetApartment { get; set; }
         private ApartmentState CurrentApartment { get; set; }
 #endif
@@ -246,7 +246,7 @@ namespace NUnit.Framework.Internal.Execution
 
             var ownThreadReason = OwnThreadReason.NotNeeded;
 
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
             if (Test.RequiresThread)
                 ownThreadReason |= OwnThreadReason.RequiresThread;
             if (timeout > 0 && Test is TestMethod)
@@ -272,7 +272,7 @@ namespace NUnit.Framework.Internal.Execution
                 log.Debug("Running test on own thread. " + ownThreadReason);
 #if SILVERLIGHT || NETCF
                 RunTestOnOwnThread(timeout);
-#elif !PORTABLE
+#elif !PORTABLE && !NETSTANDARD1_3
                 var apartment = (ownThreadReason | OwnThreadReason.DifferentApartment) != 0
                     ? TargetApartment
                     : CurrentApartment;
@@ -291,7 +291,7 @@ namespace NUnit.Framework.Internal.Execution
         }
 #endif
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
         private Thread thread;
 
         private void RunTestOnOwnThread(int timeout, ApartmentState apartment)
@@ -302,7 +302,7 @@ namespace NUnit.Framework.Internal.Execution
         }
 #endif
 
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
         private void RunThread(int timeout)
         {
 #if !NETCF
@@ -384,7 +384,7 @@ namespace NUnit.Framework.Internal.Execution
             if (!force)
                 return;
 
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
             Thread tThread;
 
             lock (threadLock)
@@ -412,9 +412,9 @@ namespace NUnit.Framework.Internal.Execution
 #endif
         }
 
-#endregion
+        #endregion
 
-#region Protected Methods
+        #region Protected Methods
 
         /// <summary>
         /// Method that performs actually performs the work. It should

@@ -31,7 +31,7 @@ using NUnit.Framework.Constraints;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal.Execution;
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
 using System.Runtime.Remoting.Messaging;
 using System.Security.Principal;
 using NUnit.Compatibility;
@@ -49,7 +49,7 @@ namespace NUnit.Framework.Internal
     /// are called.
     /// </summary>
     public class TestExecutionContext
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
         : LongLivedMarshalByRefObject, ILogicalThreadAffinative
 #endif
     {
@@ -99,7 +99,7 @@ namespace NUnit.Framework.Internal
         /// </summary>
         private TestResult _currentResult;
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         /// <summary>
         /// The current Principal.
         /// </summary>
@@ -122,7 +122,7 @@ namespace NUnit.Framework.Internal
             _currentCulture = CultureInfo.CurrentCulture;
             _currentUICulture = CultureInfo.CurrentUICulture;
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             _currentPrincipal = Thread.CurrentPrincipal;
 #endif
 
@@ -150,7 +150,7 @@ namespace NUnit.Framework.Internal
             _currentCulture = other.CurrentCulture;
             _currentUICulture = other.CurrentUICulture;
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             _currentPrincipal = other.CurrentPrincipal;
 #endif
 
@@ -173,7 +173,7 @@ namespace NUnit.Framework.Internal
         // We create a new context, which is automatically
         // populated with values taken from the current thread.
 
-#if SILVERLIGHT || PORTABLE
+#if SILVERLIGHT || PORTABLE || NETSTANDARD1_3
         // In the Silverlight and portable builds, we use a ThreadStatic
         // field to hold the current TestExecutionContext.
 
@@ -196,6 +196,14 @@ namespace NUnit.Framework.Internal
             {
                 _currentContext = value;
             }
+        }
+
+        /// <summary>
+        /// Get the current context or return null if none is found.
+        /// </summary>
+        public static TestExecutionContext GetTestExecutionContext()
+        {
+            return CurrentContext;
         }
 #elif NETCF
         // In the compact framework build, we use a LocalStoreDataSlot
@@ -430,7 +438,7 @@ namespace NUnit.Framework.Internal
             set
             {
                 _currentCulture = value;
-#if !NETCF && !PORTABLE
+#if !NETCF && !PORTABLE && !NETSTANDARD1_3
                 Thread.CurrentThread.CurrentCulture = _currentCulture;
 #endif
             }
@@ -445,13 +453,13 @@ namespace NUnit.Framework.Internal
             set
             {
                 _currentUICulture = value;
-#if !NETCF && !PORTABLE
+#if !NETCF && !PORTABLE && !NETSTANDARD1_3
                 Thread.CurrentThread.CurrentUICulture = _currentUICulture;
 #endif
             }
         }
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         /// <summary>
         /// Gets or sets the current <see cref="IPrincipal"/> for the Thread.
         /// </summary>
@@ -490,7 +498,7 @@ namespace NUnit.Framework.Internal
             _currentCulture = CultureInfo.CurrentCulture;
             _currentUICulture = CultureInfo.CurrentUICulture;
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             _currentPrincipal = Thread.CurrentPrincipal;
 #endif
         }
@@ -502,12 +510,12 @@ namespace NUnit.Framework.Internal
         /// </summary>
         public void EstablishExecutionEnvironment()
         {
-#if !NETCF && !PORTABLE
+#if !NETCF && !PORTABLE && !NETSTANDARD1_3
             Thread.CurrentThread.CurrentCulture = _currentCulture;
             Thread.CurrentThread.CurrentUICulture = _currentUICulture;
 #endif
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             Thread.CurrentPrincipal = _currentPrincipal;
 #endif
 
@@ -545,7 +553,7 @@ namespace NUnit.Framework.Internal
 
         #region InitializeLifetimeService
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
         /// <summary>
         /// Obtain lifetime service object
         /// </summary>
