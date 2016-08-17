@@ -8,8 +8,8 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>a75c5e93-be96-4179-b83d-3d7dd798345b</ProjectGuid>
     <RootNamespace>NUnit.Framework</RootNamespace>
-    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
-    <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
+    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj\netstandard</BaseIntermediateOutputPath>
+    <OutputPath Condition="'$(OutputPath)'=='' ">$(SolutionDir)bin\$(Configuration)\netstandard\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup>

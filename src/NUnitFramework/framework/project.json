@@ -2,7 +2,10 @@
     "version": "3.5.0-*",
 
     "buildOptions": {
-        "define": [ "PARALLEL" ]
+        "define": [ "PARALLEL" ],
+        "keyFile": "../../nunit.snk",
+        "warningsAsErrors": true,
+        "outputName": "nunit.framework.dll"
     },
 
     "dependencies": {
