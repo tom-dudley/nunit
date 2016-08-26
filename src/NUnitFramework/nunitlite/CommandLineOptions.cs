@@ -40,7 +40,7 @@ namespace NUnit.Common
     public class CommandLineOptions : OptionSet
     {
         private static readonly string DEFAULT_WORK_DIRECTORY =
-#if NETCF || PORTABLE
+#if NETCF || PORTABLE || NETSTANDARD1_3
             @"\My Documents";
 #elif SILVERLIGHT
             Environment.GetFolderPath(Environment.SpecialFolder.Personal);   
@@ -284,7 +284,8 @@ namespace NUnit.Common
                     {
                         try
                         {
-                            using (var rdr = new StreamReader(fullTestListPath))
+                            using (var stream = new FileStream(fullTestListPath, FileMode.Open, FileAccess.Read))
+                            using (var rdr = new StreamReader(stream))
                             {
                                 while (!rdr.EndOfStream)
                                 {

@@ -4,16 +4,17 @@
     "buildOptions": {
         "compile": [ "../FrameworkVersion.cs", "../../CommonAssemblyInfo.cs" ],
         "debugType": "portable",
-        "define": [ "PARALLEL" ],
+        "define": [ "PARALLEL", "NUNITLITE" ],
         "keyFile": "../../nunit.snk",
         "warningsAsErrors": true
     },
 
     "dependencies": {
-        "NETStandard.Library": "1.6.0",
-        "System.Diagnostics.Process": "4.1.0",
-        "System.Threading.Thread": "4.0.0"
-    },
+        "nunit.framework": {
+            "target": "project"
+        },
+            "NETStandard.Library": "1.6.0"
+        },
 
     "frameworks": {
         "netstandard1.3": {

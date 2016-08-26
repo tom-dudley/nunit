@@ -64,7 +64,7 @@ namespace NUnitLite
             // NOTE: Under .NET 1.1, XmlTextWriter does not implement IDisposable,
             // but does implement Close(). Hence we cannot use a 'using' clause.
             //using (XmlTextWriter xmlWriter = new XmlTextWriter(writer))
-#if SILVERLIGHT
+#if SILVERLIGHT || NETSTANDARD1_3
             XmlWriter xmlWriter = XmlWriter.Create(writer);
 #else
             XmlTextWriter xmlWriter = new XmlTextWriter(writer);
@@ -77,7 +77,7 @@ namespace NUnitLite
             }
             finally
             {
-                writer.Close();
+                writer.Dispose();
             }
         }
 
@@ -128,6 +128,7 @@ namespace NUnitLite
 
         private void WriteEnvironment()
         {
+#if !NETSTANDARD1_3
             xmlWriter.WriteStartElement("environment");
             var assemblyName = AssemblyHelper.GetAssemblyName(Assembly.GetExecutingAssembly());
             xmlWriter.WriteAttributeString("nunit-version",
@@ -151,6 +152,7 @@ namespace NUnitLite
 #endif
 #endif
             xmlWriter.WriteEndElement();
+#endif
         }
 
         private void WriteResultElement(ITestResult result)
@@ -182,11 +184,15 @@ namespace NUnitLite
             xmlWriter.WriteEndElement(); // test-results
             xmlWriter.WriteEndDocument();
             xmlWriter.Flush();
+#if NETSTANDARD1_3
+            xmlWriter.Dispose();
+#else
             xmlWriter.Close();
+#endif
         }
 
 
-        #region Element Creation Helpers
+#region Element Creation Helpers
 
         private void StartTestElement(ITestResult result)
         {
@@ -339,9 +345,9 @@ namespace NUnitLite
             xmlWriter.WriteEndElement();
         }
 
-        #endregion
+#endregion
 
-        #region Output Helpers
+#region Output Helpers
         ///// <summary>
         ///// Makes string safe for xml parsing, replacing control chars with '?'
         ///// </summary>
@@ -395,6 +401,6 @@ namespace NUnitLite
                 xmlWriter.WriteCData(text);
         }
 
-        #endregion
+#endregion
     }
 }

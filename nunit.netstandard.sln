@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.framework.netstandard", "src\NUnitFramework\framework\nunit.framework.netstandard.xproj", "{A75C5E93-BE96-4179-B83D-3D7DD798345B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.framework", "src\NUnitFramework\framework\nunit.framework.xproj", "{A75C5E93-BE96-4179-B83D-3D7DD798345B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "mock-assembly", "src\NUnitFramework\mock-assembly\mock-assembly.xproj", "{3E3F05ED-71BC-4F6B-A2FF-B9378602029E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunitlite", "src\NUnitFramework\nunitlite\nunitlite.xproj", "{123614F8-5512-4463-9C29-CFB1744B70B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{151C8F10-6B62-4DDF-9E82-049D314894BF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.travis.yml = .travis.yml
+		appveyor.yml = appveyor.yml
+		build.cake = build.cake
+		BUILDING.md = BUILDING.md
+		CHANGES.txt = CHANGES.txt
+		CONTRIBUTING.md = CONTRIBUTING.md
+		global.json = global.json
+		NuGet.config = NuGet.config
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +35,14 @@ Global
 		{A75C5E93-BE96-4179-B83D-3D7DD798345B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75C5E93-BE96-4179-B83D-3D7DD798345B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75C5E93-BE96-4179-B83D-3D7DD798345B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E3F05ED-71BC-4F6B-A2FF-B9378602029E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E3F05ED-71BC-4F6B-A2FF-B9378602029E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E3F05ED-71BC-4F6B-A2FF-B9378602029E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E3F05ED-71BC-4F6B-A2FF-B9378602029E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123614F8-5512-4463-9C29-CFB1744B70B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123614F8-5512-4463-9C29-CFB1744B70B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123614F8-5512-4463-9C29-CFB1744B70B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123614F8-5512-4463-9C29-CFB1744B70B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

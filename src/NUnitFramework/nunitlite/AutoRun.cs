@@ -66,7 +66,7 @@ namespace NUnitLite
             _testAssembly = testAssembly;
         }
 
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
         /// <summary>
         /// Default Constructor, only used where GetCallingAssembly is available
         /// </summary>

@@ -15,5 +15,14 @@
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <DnxInvisibleContent Include="nunit.framework-2.0.project.json" />
+    <DnxInvisibleContent Include="nunit.framework-3.5.project.json" />
+    <DnxInvisibleContent Include="nunit.framework-4.0.project.json" />
+    <DnxInvisibleContent Include="nunit.framework-4.5.project.json" />
+    <DnxInvisibleContent Include="nunit.framework-portable.project.json" />
+    <DnxInvisibleContent Include="nunit.framework-sl-5.0.project.json" />
+    <DnxInvisibleContent Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

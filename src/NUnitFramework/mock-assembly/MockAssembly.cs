@@ -99,7 +99,7 @@ namespace NUnit.Tests
             public const int Inconclusive = MockTestFixture.Inconclusive;
             public const int Success = TestsRun - Errors - Failures - Inconclusive;
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             public static readonly string AssemblyPath = AssemblyHelper.GetAssemblyPath(typeof(MockAssembly).Assembly);
 
             public static void Main(string[] args)

@@ -168,7 +168,7 @@ namespace NUnitLite
         /// </summary>
         public void DisplayRuntimeEnvironment()
         {
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
             WriteSectionHeader("Runtime Environment");
             Writer.WriteLabelLine("   OS Version: ", Environment.OSVersion);
             Writer.WriteLabelLine("  CLR Version: ", Environment.Version);

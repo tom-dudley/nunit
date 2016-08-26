@@ -10,9 +10,13 @@
     },
 
     "dependencies": {
+        "nunit.framework": {
+            "target": "project"
+        },
         "NETStandard.Library": "1.6.0",
-        "System.Diagnostics.Process": "4.1.0",
-        "System.Threading.Thread": "4.0.0"
+        "nunitlite": {
+            "target": "project"
+        }
     },
 
     "frameworks": {

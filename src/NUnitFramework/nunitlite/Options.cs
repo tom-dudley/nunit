@@ -137,17 +137,17 @@ using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 
 // Missing XML Docs
 #pragma warning disable 1591
 
-#if PORTABLE
+#if PORTABLE || NETSTANDARD1_3
 using NUnit.Compatibility;
 #else
 using System.Security.Permissions;
+using System.Runtime.Serialization;
 #endif
 
 #if LINQ
@@ -363,7 +363,7 @@ namespace Mono.Options
         protected static T Parse<T> (string value, OptionContext c)
         {
             Type tt = typeof (T);
-#if PORTABLE
+#if PORTABLE || NETSTANDARD1_3
             bool nullable = tt.GetTypeInfo().IsValueType && tt.GetTypeInfo().IsGenericType && 
                 !tt.GetTypeInfo().IsGenericTypeDefinition && 
                 tt.GetGenericTypeDefinition () == typeof (Nullable<>);
@@ -375,13 +375,13 @@ namespace Mono.Options
             Type targetType = nullable ? tt.GetGenericArguments () [0] : typeof (T);
 #endif
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             TypeConverter conv = TypeDescriptor.GetConverter (targetType);
 #endif
             T t = default (T);
             try {
                 if (value != null)
-#if NETCF || SILVERLIGHT || PORTABLE
+#if NETCF || SILVERLIGHT || PORTABLE || NETSTANDARD1_3
                     t = (T)Convert.ChangeType(value, tt, CultureInfo.InvariantCulture);
 #else
                     t = (T) conv.ConvertFromString (value);
@@ -491,7 +491,7 @@ namespace Mono.Options
         }
     }
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
     [Serializable]
 #endif
     public class OptionException : Exception
@@ -514,7 +514,7 @@ namespace Mono.Options
             this.option = optionName;
         }
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         protected OptionException (SerializationInfo info, StreamingContext context)
             : base (info, context)
         {
@@ -526,7 +526,7 @@ namespace Mono.Options
             get {return this.option;}
         }
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         [SecurityPermission (SecurityAction.LinkDemand, SerializationFormatter = true)]
         public override void GetObjectData (SerializationInfo info, StreamingContext context)
         {
@@ -540,7 +540,7 @@ namespace Mono.Options
 
     public class OptionSet : KeyedCollection<string, Option>
     {
-#if !PORTABLE
+#if !PORTABLE && !NETSTANDARD1_3
         public OptionSet ()
             : this (delegate (string f) {return f;})
         {

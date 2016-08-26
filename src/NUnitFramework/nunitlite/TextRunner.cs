@@ -111,7 +111,7 @@ namespace NUnitLite
 
         #region Public Methods
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         public int Execute(string[] args)
         {
             var options = new NUnitLiteOptions(args);
@@ -394,7 +394,7 @@ namespace NUnitLite
             return filter;
         }
 
-#if !PORTABLE && !SILVERLIGHT
+#if !PORTABLE && !SILVERLIGHT && !NETSTANDARD1_3
         private void InitializeInternalTrace(NUnitLiteOptions _options)
         {
             var traceLevel = (InternalTraceLevel)Enum.Parse(typeof(InternalTraceLevel), _options.InternalTraceLevel ?? "Off", true);
