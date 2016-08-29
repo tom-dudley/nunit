@@ -23,7 +23,7 @@
 
 using System;
 using NUnit.Framework;
-#if !NETCF
+#if !NETCF && !NETSTANDARD1_3
 using System.Security.Principal;
 #endif
 
@@ -484,7 +484,7 @@ namespace NUnit.TestData.TestFixtureTests
         }
     }
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
     [TestFixture]
     public class FixtureThatChangesTheCurrentPrincipal
     {

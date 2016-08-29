@@ -1,11 +1,15 @@
 {
     "version": "3.5.0-*",
+    "packOptions": {
+        
+    },
 
     "buildOptions": {
         "compile": [ "../FrameworkVersion.cs", "../../CommonAssemblyInfo.cs" ],
         "debugType": "portable",
         "define": [ "PARALLEL" ],
         "keyFile": "../../nunit.snk",
+        "outputName": "nunit.framework",
         "warningsAsErrors": true
     },
 

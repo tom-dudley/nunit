@@ -10,10 +10,10 @@
     },
 
     "dependencies": {
+        "NETStandard.Library": "1.6.0",
         "nunit.framework": {
             "target": "project"
         },
-        "NETStandard.Library": "1.6.0",
         "nunitlite": {
             "target": "project"
         }
