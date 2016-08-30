@@ -307,11 +307,11 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\framework\nunit.framework-3.5.csproj">
+    <ProjectReference Include="..\nunit.framework\nunit.framework-3.5.csproj">
       <Project>{7FA125B4-E377-4D4C-AECB-17B934E3A4B3}</Project>
       <Name>nunit.framework-3.5</Name>
     </ProjectReference>
-    <ProjectReference Include="..\testdata\nunit.testdata-3.5.csproj">
+    <ProjectReference Include="..\nunit.testdata\nunit.testdata-3.5.csproj">
       <Project>{520F4C89-51B6-49D6-9ED7-4523048C0154}</Project>
       <Name>nunit.testdata-3.5</Name>
     </ProjectReference>

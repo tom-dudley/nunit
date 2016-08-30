@@ -82,7 +82,7 @@
     <Compile Include="Tokenizer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\framework\nunit.framework-2.0.csproj">
+    <ProjectReference Include="..\nunit.framework\nunit.framework-2.0.csproj">
       <Project>{12B66B03-90F1-4992-BD33-BDF3C69AE49E}</Project>
       <Name>nunit.framework-2.0</Name>
     </ProjectReference>
