@@ -24,7 +24,7 @@
             ]
         },
         "debugType": "portable",
-        "define": [ "PARALLEL" ],
+        "define": [ "PARALLEL", "NETSTANDARD1_3" ],
         "keyFile": "../../nunit.snk",
         "outputName": "nunit.framework.tests",
         "warningsAsErrors": true
@@ -49,8 +49,13 @@
     },
 
     "frameworks": {
-        "netstandard1.3": {
-            "imports": "dnxcore50"
+        "netcoreapp1.0": {
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "version": "1.0.0-*",
+                    "type": "platform"
+                }
+            }
         }
     }
 }

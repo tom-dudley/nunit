@@ -1,13 +1,13 @@
 {
     "projects": [
-        "src/NUnitFramework/framework",
         "src/NUnitFramework/mock-assembly",
+        "src/NUnitFramework/nunit.framework",
+        "src/NUnitFramework/nunit.framework.tests",
+        "src/NUnitFramework/nunit.testdata",
         "src/NUnitFramework/nunitlite",
         "src/NUnitFramework/nunitlite.tests",
         "src/NUnitFramework/nunitlite-runner",
-        "src/NUnitFramework/slow-tests",
-        "src/NUnitFramework/testdata",
-        "src/NUnitFramework/tests"
+        "src/NUnitFramework/slow-nunit-tests"
     ],
     "sdk": {
         "version": "1.0.0-preview2-003121"

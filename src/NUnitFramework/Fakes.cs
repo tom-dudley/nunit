@@ -22,11 +22,12 @@
 // ***********************************************************************
 
 using System;
+using System.Reflection;
 using NUnit.Compatibility;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Execution;
 
-#if (PORTABLE || NETSTANDARD1_3) && !NUNITLITE
+#if PORTABLE && !NUNITLITE
 using BF = NUnit.Compatibility.BindingFlags;
 #else
 using BF = System.Reflection.BindingFlags;

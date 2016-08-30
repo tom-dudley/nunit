@@ -71,7 +71,7 @@ namespace NUnit.Compatibility
         }
     }
 
-#elif PORTABLE || NETSTANDARD1_3
+#elif PORTABLE
 
     /// <summary>
     /// Provides NUnit specific extensions to aid in Reflection
@@ -399,7 +399,22 @@ namespace NUnit.Compatibility
 
             return pinfo.GetMethod;
         }
+#endif
 
+#if !NET_4_5 && !PORTABLE
+#if NETSTANDARD1_3
+    /// <summary>
+    /// Provides NUnit specific extensions to aid in Reflection
+    /// across multiple frameworks
+    /// </summary>
+    /// <remarks>
+    /// This version of the class allows direct calls on Type on
+    /// those platforms that would normally require use of 
+    /// GetTypeInfo().
+    /// </remarks>
+    public static class TypeExtensions
+    {
+#endif
         /// <summary>
         /// Returns an array of custom attributes of the specified type applied to this member
         /// </summary>
@@ -436,7 +451,9 @@ namespace NUnit.Compatibility
 
             return attrs;
         }
+#if NETSTANDARD1_3
     }
+#endif
 
     /// <summary>
     /// Extensions for Assembly that are not available in portable
@@ -457,6 +474,7 @@ namespace NUnit.Compatibility
             return asm.GetCustomAttributes(attributeType).ToArray();
         }
 
+#if !NETSTANDARD1_3
         /// <summary>
         /// Gets the types in a given assembly
         /// </summary>
@@ -466,6 +484,7 @@ namespace NUnit.Compatibility
         {
             return asm.DefinedTypes.Select(info => info.AsType()).ToList();
         }
+#endif
     }
 #endif
 

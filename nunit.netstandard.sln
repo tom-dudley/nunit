@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.framework", "src\NUnitFramework\framework\nunit.framework.xproj", "{A75C5E93-BE96-4179-B83D-3D7DD798345B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.framework", "src\NUnitFramework\nunit.framework\nunit.framework.xproj", "{A75C5E93-BE96-4179-B83D-3D7DD798345B}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "mock-assembly", "src\NUnitFramework\mock-assembly\mock-assembly.xproj", "{3E3F05ED-71BC-4F6B-A2FF-B9378602029E}"
 EndProject
@@ -25,9 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.testdata", "src\NUnitFramework\testdata\nunit.testdata.xproj", "{4E2B6962-EF79-47C7-8CDC-DC9AB650C437}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.testdata", "src\NUnitFramework\nunit.testdata\nunit.testdata.xproj", "{4E2B6962-EF79-47C7-8CDC-DC9AB650C437}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.framework.tests", "src\NUnitFramework\tests\nunit.framework.tests.xproj", "{EDF45024-905A-4616-8D5C-644CB9D7D7A6}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "nunit.framework.tests", "src\NUnitFramework\nunit.framework.tests\nunit.framework.tests.xproj", "{EDF45024-905A-4616-8D5C-644CB9D7D7A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
