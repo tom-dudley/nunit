@@ -44,7 +44,7 @@ namespace NUnit.Framework.Api
         private const string EMPTY_FILTER = "<filter/>";
 
         private static readonly string MOCK_ASSEMBLY_NAME = typeof(MockAssembly).GetTypeInfo().Assembly.FullName;
-#if SILVERLIGHT || PORTABLE
+#if SILVERLIGHT || PORTABLE || NETSTANDARD1_3
         private static readonly string EXPECTED_NAME = MOCK_ASSEMBLY_NAME;
 #else
         private static readonly string EXPECTED_NAME = MOCK_ASSEMBLY_FILE;
@@ -58,7 +58,7 @@ namespace NUnit.Framework.Api
         [SetUp]
         public void CreateController()
         {
-#if PORTABLE
+#if PORTABLE || NETSTANDARD1_3
             _controller = new FrameworkController(typeof(MockAssembly).GetTypeInfo().Assembly, "ID", _settings);
 #elif SILVERLIGHT
             _controller = new FrameworkController(MOCK_ASSEMBLY_NAME, "ID", _settings);
@@ -74,7 +74,7 @@ namespace NUnit.Framework.Api
         {
             Assert.That(_controller.Builder, Is.TypeOf<DefaultTestAssemblyBuilder>());
             Assert.That(_controller.Runner, Is.TypeOf<NUnitTestAssemblyRunner>());
-#if SILVERLIGHT || PORTABLE
+#if SILVERLIGHT || PORTABLE || NETSTANDARD1_3
             Assert.That(_controller.AssemblyNameOrPath, Is.EqualTo(MOCK_ASSEMBLY_NAME));
 #else
             Assert.That(_controller.AssemblyNameOrPath, Is.EqualTo(MOCK_ASSEMBLY_PATH));

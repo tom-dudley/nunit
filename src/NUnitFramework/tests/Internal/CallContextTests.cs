@@ -21,7 +21,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
-#if PARALLEL && !NETCF
+#if PARALLEL && !NETCF && !NETSTANDARD1_3
 using System;
 using System.Threading;
 using System.Runtime.Remoting.Messaging;

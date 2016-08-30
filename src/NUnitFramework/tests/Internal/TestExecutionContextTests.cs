@@ -29,7 +29,7 @@ using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal.Execution;
 
-#if !NETCF
+#if !NETCF && !NETSTANDARD1_3
 using System.Security.Principal;
 #endif
 
@@ -44,7 +44,7 @@ namespace NUnit.Framework.Internal
         TestExecutionContext fixtureContext;
         TestExecutionContext setupContext;
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         string originalDirectory;
         IPrincipal originalPrincipal;
 #endif
@@ -82,7 +82,7 @@ namespace NUnit.Framework.Internal
             originalUICulture = CultureInfo.CurrentUICulture;
 #endif
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             originalDirectory = Environment.CurrentDirectory;
             originalPrincipal = Thread.CurrentPrincipal;
 #endif
@@ -91,12 +91,12 @@ namespace NUnit.Framework.Internal
         [TearDown]
         public void Cleanup()
         {
-#if !NETCF && !PORTABLE
+#if !NETCF && !PORTABLE && !NETSTANDARD1_3
             Thread.CurrentThread.CurrentCulture = originalCulture;
             Thread.CurrentThread.CurrentUICulture = originalUICulture;
 #endif
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
             Environment.CurrentDirectory = originalDirectory;
             Thread.CurrentPrincipal = originalPrincipal;
 #endif
@@ -312,7 +312,7 @@ namespace NUnit.Framework.Internal
 
         #region CurrentPrincipal
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         [Test]
         public void FixtureSetUpContextReflectsCurrentPrincipal()
         {
@@ -442,7 +442,7 @@ namespace NUnit.Framework.Internal
 
         #region Cross-domain Tests
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
         [Test]
         public void CanCreateObjectInAppDomain()
         {
@@ -467,7 +467,7 @@ namespace NUnit.Framework.Internal
         #endregion
     }
 
-#if !PORTABLE && !SILVERLIGHT && !NETCF
+#if !PORTABLE && !SILVERLIGHT && !NETCF && !NETSTANDARD1_3
     [TestFixture]
     public class TextExecutionContextInAppDomain
     {

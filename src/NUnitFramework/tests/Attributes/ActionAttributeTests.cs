@@ -22,7 +22,7 @@
 // ***********************************************************************
 
 // TODO: Test uses features not available in Silverlight
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
 using System;
 using System.Collections.Generic;
 using System.Text;

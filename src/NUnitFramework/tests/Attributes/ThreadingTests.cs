@@ -30,7 +30,7 @@ namespace NUnit.Framework.Attributes
     {
         protected Thread ParentThread { get; private set; }
         protected Thread SetupThread { get; private set; }
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !NETSTANDARD1_3
         protected ApartmentState ParentThreadApartment { get; private set; }
 #endif
 
@@ -38,7 +38,7 @@ namespace NUnit.Framework.Attributes
         public void GetParentThreadInfo()
         {
             ParentThread = Thread.CurrentThread;
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !NETSTANDARD1_3
             ParentThreadApartment = GetApartmentState(ParentThread);
 #endif
         }
@@ -63,7 +63,7 @@ namespace NUnit.Framework.Attributes
             Assert.That(Thread.CurrentThread, Is.EqualTo(SetupThread));
         }
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !NETSTANDARD1_3
         protected static ApartmentState GetApartmentState(Thread thread)
         {
             return thread.GetApartmentState();

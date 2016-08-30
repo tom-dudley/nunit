@@ -1,0 +1,56 @@
+{
+    "version": "3.5.0-*",
+    "packOptions": {
+        
+    },
+
+    "buildOptions": {
+        "compile": [
+            "../FrameworkVersion.cs",
+            "../Fakes.cs",
+            "../TestBuilder.cs",
+            "../TestFile.cs",
+            "../../CommonAssemblyInfo.cs"
+        ],
+        "copyToOutput": {
+            "includeFiles": [
+                "FrameworkTests.nunit",
+                "TestImage1.jpg",
+                "TestImage2.jpg",
+                "TestListFile.txt",
+                "TestListFile2.txt",
+                "TestText1.txt",
+                "TestText2.txt"
+            ]
+        },
+        "debugType": "portable",
+        "define": [ "PARALLEL" ],
+        "keyFile": "../../nunit.snk",
+        "outputName": "nunit.framework.tests",
+        "warningsAsErrors": true
+    },
+
+    "testRunner": "nunit",
+
+    "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "dotnet-test-nunit": "3.4.0-beta-2",
+        "nunit.framework": {
+            "target": "project"
+        },
+        "mock-assembly": {
+            "target": "project"
+        },
+        "nunit.testdata": {
+            "target": "project"
+        },
+        "System.Diagnostics.Process": "4.1.0",
+        "System.Threading.Thread": "4.0.0"
+    },
+
+    "frameworks": {
+        "netstandard1.3": {
+            "imports": "dnxcore50"
+        }
+    }
+}

@@ -2,10 +2,13 @@
     "version": "3.5.0-*",
 
     "buildOptions": {
-        "compile": [ "../FrameworkVersion.cs", "../../CommonAssemblyInfo.cs" ],
+        "compile": [
+            "../FrameworkVersion.cs",
+            "../../CommonAssemblyInfo.cs" ],
         "debugType": "portable",
-        "define": [ "PARALLEL", "NUNITLITE" ],
+        "define": [ "PARALLEL" ],
         "keyFile": "../../nunit.snk",
+        "outputName": "nunit.testdata",
         "warningsAsErrors": true
     },
 

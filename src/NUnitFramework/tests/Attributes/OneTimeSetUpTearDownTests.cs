@@ -23,7 +23,7 @@
 
 using System;
 using System.Linq;
-#if !NETCF
+#if !NETCF && !NETSTANDARD1_3
 using System.Security.Principal;
 #endif
 using System.Threading;
@@ -375,7 +375,7 @@ namespace NUnit.Framework.Attributes
         }
     }
 
-#if !SILVERLIGHT && !NETCF && !PORTABLE
+#if !SILVERLIGHT && !NETCF && !PORTABLE && !NETSTANDARD1_3
     [TestFixture]
     class ChangesMadeInFixtureSetUp
     {

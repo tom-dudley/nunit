@@ -65,7 +65,7 @@ namespace NUnit.Framework.Internal.Execution
         {
             var workers = new TestWorker[]
             {
-#if NETCF
+#if NETCF || NETSTANDARD1_3
                 new TestWorker(_queue, "1"),
                 new TestWorker(_queue, "2"),
                 new TestWorker(_queue, "3")

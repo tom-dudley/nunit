@@ -713,7 +713,7 @@ namespace NUnit.Framework.Syntax
 
         #region BinarySerializable
 
-#if !NETCF && !SILVERLIGHT && !PORTABLE
+#if !NETCF && !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         [Test]
         public void BinarySerializableConstraint()
         {
@@ -727,7 +727,7 @@ namespace NUnit.Framework.Syntax
 
         #region XmlSerializable
 
-#if !SILVERLIGHT && !PORTABLE
+#if !SILVERLIGHT && !PORTABLE && !NETSTANDARD1_3
         [Test]
         public void XmlSerializableConstraint()
         {

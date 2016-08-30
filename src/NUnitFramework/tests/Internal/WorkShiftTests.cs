@@ -93,7 +93,7 @@ namespace NUnit.Framework.Internal.Execution
             Assert.That(_shift.Queues[0].State, Is.EqualTo(WorkItemQueueState.Running));
             Assert.That(_shift.Queues[1].State, Is.EqualTo(WorkItemQueueState.Running));
         }
-
+        
         [Test]
         public void HasWorkTest()
         {

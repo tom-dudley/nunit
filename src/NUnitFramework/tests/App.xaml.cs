@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NETSTANDARD1_3
+using System;
 using System.Windows;
 
 namespace NUnitLite.Tests
@@ -57,3 +58,4 @@ namespace NUnitLite.Tests
         }
     }
 }
+#endif

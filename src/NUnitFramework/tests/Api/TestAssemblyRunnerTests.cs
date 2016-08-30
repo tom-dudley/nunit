@@ -323,6 +323,7 @@ namespace NUnit.Framework.Api
 
 #endregion
 
+#if !NETSTANDARD1_3
 #region StopRun
 
         [Test]
@@ -379,8 +380,9 @@ namespace NUnit.Framework.Api
                 Assert.That(_runner.Result.PassCount, Is.LessThan(count));
             }
         }
-
 #endregion
+
+#endif
 
 #region ITestListener Implementation
 
@@ -423,13 +425,13 @@ namespace NUnit.Framework.Api
             _testOutputCount++;
         }
 
-        #endregion
+#endregion
 
 #region Helper Methods
 
         private ITest LoadMockAssembly()
         {
-#if PORTABLE
+#if PORTABLE || NETSTANDARD1_3
             return _runner.Load(
                 typeof(MockAssembly).GetTypeInfo().Assembly, 
                 EMPTY_SETTINGS);
@@ -442,6 +444,7 @@ namespace NUnit.Framework.Api
 #endif
         }
 
+#if !NETSTANDARD1_3
         private ITest LoadSlowTests()
         {
 #if PORTABLE
@@ -452,7 +455,7 @@ namespace NUnit.Framework.Api
             return _runner.Load(Path.Combine(TestContext.CurrentContext.TestDirectory, SLOW_TESTS_FILE), EMPTY_SETTINGS);
 #endif
         }
-
+#endif
 #endregion
     }
 }
