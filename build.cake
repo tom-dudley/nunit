@@ -22,7 +22,7 @@ var isCompactFrameworkInstalled = FileExists(Environment.GetEnvironmentVariable(
 
 //Find program files on 32-bit or 64-bit Windows
 var programFiles = Environment.GetEnvironmentVariable("ProgramFiles(x86)") ?? Environment.GetEnvironmentVariable("ProgramFiles");
-var isSilverlightSDKInstalled = FileExists(programFiles  + "\\MSBuild\\Microsoft\\Silverlight\\v5.0\\Microsoft.Silverlight.CSharp.targets");
+var isSilverlightSDKInstalled = false;
 
 var isAppveyor = BuildSystem.IsRunningOnAppVeyor;
 var dbgSuffix = configuration == "Debug" ? "-dbg" : "";

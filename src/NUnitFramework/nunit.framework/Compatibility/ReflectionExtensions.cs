@@ -399,10 +399,10 @@ namespace NUnit.Compatibility
 
             return pinfo.GetMethod;
         }
+    }
 #endif
 
-#if !NET_4_5 && !PORTABLE
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || PORTABLE
     /// <summary>
     /// Provides NUnit specific extensions to aid in Reflection
     /// across multiple frameworks
@@ -412,9 +412,8 @@ namespace NUnit.Compatibility
     /// those platforms that would normally require use of 
     /// GetTypeInfo().
     /// </remarks>
-    public static class TypeExtensions
+    public static class MoreTypeExtensions
     {
-#endif
         /// <summary>
         /// Returns an array of custom attributes of the specified type applied to this member
         /// </summary>
@@ -451,7 +450,7 @@ namespace NUnit.Compatibility
 
             return attrs;
         }
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || PORTABLE
     }
 #endif
 
