@@ -146,12 +146,12 @@ Task("InitializeBuild")
 Task("Build45")
     .Does(() =>
     {
-        BuildProject("src/NUnitFramework/framework/nunit.framework-4.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework/nunit.framework-4.5.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite/nunitlite-4.5.csproj", configuration);
         BuildProject("src/NUnitFramework/mock-assembly/mock-assembly-4.5.csproj", configuration);
-        BuildProject("src/NUnitFramework/testdata/nunit.testdata-4.5.csproj", configuration);
-        BuildProject("src/NUnitFramework/slow-tests/slow-nunit-tests-4.5.csproj", configuration);
-        BuildProject("src/NUnitFramework/tests/nunit.framework.tests-4.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.testdata/nunit.testdata-4.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/slow-nunit-tests/slow-nunit-tests-4.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-4.5.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite.tests/nunitlite.tests-4.5.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite-runner/nunitlite-runner-4.5.csproj", configuration);
     });
@@ -159,12 +159,12 @@ Task("Build45")
 Task("Build40")
     .Does(() =>
     {
-        BuildProject("src/NUnitFramework/framework/nunit.framework-4.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework/nunit.framework-4.0.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite/nunitlite-4.0.csproj", configuration);
         BuildProject("src/NUnitFramework/mock-assembly/mock-assembly-4.0.csproj", configuration);
-        BuildProject("src/NUnitFramework/testdata/nunit.testdata-4.0.csproj", configuration);
-        BuildProject("src/NUnitFramework/slow-tests/slow-nunit-tests-4.0.csproj", configuration);
-        BuildProject("src/NUnitFramework/tests/nunit.framework.tests-4.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.testdata/nunit.testdata-4.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/slow-nunit-tests/slow-nunit-tests-4.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-4.0.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite.tests/nunitlite.tests-4.0.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite-runner/nunitlite-runner-4.0.csproj", configuration);
     });
@@ -172,12 +172,12 @@ Task("Build40")
 Task("Build35")
     .Does(() =>
     {
-        BuildProject("src/NUnitFramework/framework/nunit.framework-3.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework/nunit.framework-3.5.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite/nunitlite-3.5.csproj", configuration);
         BuildProject("src/NUnitFramework/mock-assembly/mock-assembly-3.5.csproj", configuration);
-        BuildProject("src/NUnitFramework/testdata/nunit.testdata-3.5.csproj", configuration);
-        BuildProject("src/NUnitFramework/slow-tests/slow-nunit-tests-3.5.csproj", configuration);
-        BuildProject("src/NUnitFramework/tests/nunit.framework.tests-3.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.testdata/nunit.testdata-3.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/slow-nunit-tests/slow-nunit-tests-3.5.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-3.5.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite.tests/nunitlite.tests-3.5.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite-runner/nunitlite-runner-3.5.csproj", configuration);
     });
@@ -185,12 +185,12 @@ Task("Build35")
 Task("Build20")
     .Does(() =>
     {
-        BuildProject("src/NUnitFramework/framework/nunit.framework-2.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework/nunit.framework-2.0.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite/nunitlite-2.0.csproj", configuration);
         BuildProject("src/NUnitFramework/mock-assembly/mock-assembly-2.0.csproj", configuration);
-        BuildProject("src/NUnitFramework/testdata/nunit.testdata-2.0.csproj", configuration);
-        BuildProject("src/NUnitFramework/slow-tests/slow-nunit-tests-2.0.csproj", configuration);
-        BuildProject("src/NUnitFramework/tests/nunit.framework.tests-2.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.testdata/nunit.testdata-2.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/slow-nunit-tests/slow-nunit-tests-2.0.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-2.0.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite.tests/nunitlite.tests-2.0.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite-runner/nunitlite-runner-2.0.csproj", configuration);
     });
@@ -199,11 +199,11 @@ Task("BuildPortable")
     .WithCriteria(IsRunningOnWindows())
     .Does(() =>
     {
-        BuildProject("src/NUnitFramework/framework/nunit.framework-portable.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework/nunit.framework-portable.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite/nunitlite-portable.csproj", configuration);
         BuildProject("src/NUnitFramework/mock-assembly/mock-assembly-portable.csproj", configuration);
-        BuildProject("src/NUnitFramework/testdata/nunit.testdata-portable.csproj", configuration);
-        BuildProject("src/NUnitFramework/tests/nunit.framework.tests-portable.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.testdata/nunit.testdata-portable.csproj", configuration);
+        BuildProject("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-portable.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite.tests/nunitlite.tests-portable.csproj", configuration);
         BuildProject("src/NUnitFramework/nunitlite-runner/nunitlite-runner-portable.csproj", configuration);
     });
@@ -214,11 +214,11 @@ Task("BuildSL")
     {
         if(isSilverlightSDKInstalled)
         {
-            BuildProject("src/NUnitFramework/framework/nunit.framework-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
+            BuildProject("src/NUnitFramework/nunit.framework/nunit.framework-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
             BuildProject("src/NUnitFramework/nunitlite/nunitlite-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
             BuildProject("src/NUnitFramework/mock-assembly/mock-assembly-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
-            BuildProject("src/NUnitFramework/testdata/nunit.testdata-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
-            BuildProject("src/NUnitFramework/tests/nunit.framework.tests-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
+            BuildProject("src/NUnitFramework/nunit.testdata/nunit.testdata-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
+            BuildProject("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
             BuildProject("src/NUnitFramework/nunitlite.tests/nunitlite.tests-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
             BuildProject("src/NUnitFramework/nunitlite-runner/nunitlite-runner-sl-5.0.csproj", configuration, MSBuildPlatform.x86);
         }
@@ -236,11 +236,11 @@ Task("BuildCF")
     {
         if(isCompactFrameworkInstalled)
         {
-            BuildProjectCF("src/NUnitFramework/framework/nunit.framework-netcf-3.5.csproj", configuration);
+            BuildProjectCF("src/NUnitFramework/nunit.framework/nunit.framework-netcf-3.5.csproj", configuration);
             BuildProjectCF("src/NUnitFramework/mock-assembly/mock-assembly-netcf-3.5.csproj", configuration);
-            BuildProjectCF("src/NUnitFramework/testdata/nunit.testdata-netcf-3.5.csproj", configuration);
-            BuildProjectCF("src/NUnitFramework/tests/nunit.framework.tests-netcf-3.5.csproj", configuration);
-            BuildProjectCF("src/NUnitFramework/slow-tests/slow-nunit-tests-netcf-3.5.csproj", configuration);
+            BuildProjectCF("src/NUnitFramework/nunit.testdata/nunit.testdata-netcf-3.5.csproj", configuration);
+            BuildProjectCF("src/NUnitFramework/nunit.framework.tests/nunit.framework.tests-netcf-3.5.csproj", configuration);
+            BuildProjectCF("src/NUnitFramework/slow-nunit-tests/slow-nunit-tests-netcf-3.5.csproj", configuration);
             BuildProjectCF("src/NUnitFramework/nunitlite/nunitlite-netcf-3.5.csproj", configuration);
             BuildProjectCF("src/NUnitFramework/nunitlite.tests/nunitlite.tests-netcf-3.5.csproj", configuration);
             BuildProjectCF("src/NUnitFramework/nunitlite-runner/nunitlite-runner-netcf-3.5.csproj", configuration);
