@@ -24,6 +24,16 @@
 using System;
 using NUnit.Framework.Interfaces;
 
+namespace Foo
+{
+    
+}
+
+namespace Bar
+{
+    
+}
+
 namespace NUnit.Framework.Internal.Filters
 {
     /// <summary>
@@ -45,10 +55,31 @@ namespace NUnit.Framework.Internal.Filters
         /// </summary>
         public override bool Match(ITest test)
         {
-            var className = test.ClassName;
-            if (test.IsSuite)
-                className = test.ToString();
-            var containingNamespace = className.Substring(0, className.LastIndexOf("."));
+            string containingNamespace = null;
+
+            if (test is Test)
+            {
+                containingNamespace = test.TypeInfo.Namespace;
+            }
+            else if (test is TestFixture)
+            {
+                ((TestFixture)test)
+            }
+            else if (test is TestSuite)
+            {
+                
+            }
+
+                if (test.IsSuite && (test.Tests.Count > 0))
+                {
+                    containingNamespace = test.Tests[0].TypeInfo.Namespace;
+                }
+                else
+                {
+                    var className = test.ToString();
+                    containingNamespace = className.Substring(0, className.LastIndexOf("."));
+                }
+
             return Match(containingNamespace);
         }
 

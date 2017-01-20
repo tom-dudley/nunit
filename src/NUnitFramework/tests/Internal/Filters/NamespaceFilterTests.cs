@@ -55,7 +55,7 @@ namespace NUnit.Framework.Internal.Filters
 
         [Test]
         public void PassTest()
-        {
+        { 
             Assert.That(_filter.Pass(_topLevelSuite), Is.EqualTo(_expected));
             Assert.That(_filter.Pass(_dummyFixture), Is.EqualTo(_expected));
             Assert.That(_filter.Pass(_dummyFixture.Tests[0]), Is.EqualTo(_expected));
